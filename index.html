@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Restaurant Order App</title>
+</head>
+<body>
+    
+<form class="form" id="userForm" action="#">
+    <label for="price" class="label">Price:</label>
+    <input type="text" id="price" name="price" class="input">
+
+    <label for="dish" class="label">Dish:</label>
+    <input type="text" id="dish" name="dish" class="input">
+
+    <select name="Talbe" id="tableoption" class="select"> 
+        <option value="">Select Table</option>
+        <option value="1">Table 1</option>
+        <option value="2">Table 2</option>
+        <option value="3">Table 3</option>
+    </select>
+
+    <input id="btn" type="submit" class="button">
+</form>
+<div class="container">
+    <h1>Tables</h1>
+    <div class="table">
+        <h2>Table 1</h2>
+        <ul id="table1" class="tables">
+            <li class="order">Initial order for Table 1</li>
+        </ul>
+    </div>
+    <div class="table">
+        <h2>Table 2</h2>
+        <ul id="table2" class="tables">
+            <li class="order">Initial order for Table 2</li>
+        </ul>
+    </div>
+    <div class="table">
+        <h2>Table 3</h2>
+        <ul id="table3" class="tables">
+            <li class="order">Initial order for Table 3</li>
+        </ul>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
