@@ -1,7 +1,6 @@
 const form = document.getElementById('userForm');
 
 
-
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
