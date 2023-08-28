@@ -9,28 +9,36 @@ const price = document.getElementById('price').value;
 const dish = document.getElementById('dish').value;
 const tableoption = document.getElementById('tableoption').value;
 
+
+// creating object 
 const userData = {
     price: price,
     dish: dish,
     tableoption: tableoption
 };
 
+ // pusing the data to data base 
 
-
-axios.post('https://crudcrud.com/api/04e5026aae7c44249bb13acc4d8c92ab/resturentdata', userData)
+axios.post('https://crudcrud.com/api/520904f9f14f43be8773047ebe65c3b3/resturentdata', userData)
       .then((res)=> console.log(res))
       .catch((err)=> console.log(err))
 
+      populateOrders();
+ //  Clear the input fields after submission
+      document.getElementById('price').value = '';
+      document.getElementById('dish').value = '';
+      document.getElementById('tableoption').value = '';
 
 })
 
 
 function populateOrders() {
-    axios.get('https://crudcrud.com/api/04e5026aae7c44249bb13acc4d8c92ab/resturentdata')
+    axios.get('https://crudcrud.com/api/520904f9f14f43be8773047ebe65c3b3/resturentdata')
         .then((res) => {
             const restaurantData = res.data;
+            console.log(restaurantData)
 
-
+            
             for (const data of restaurantData) {
                 const tableId = `table${data.tableoption}`;
                 const table = document.getElementById(tableId);
@@ -42,7 +50,7 @@ function populateOrders() {
                 deleteButton.classList.add('delete-button');
                 deleteButton.addEventListener('click', function() {
                     // Delete the order from both the UI and the server
-                    axios.delete(`https://crudcrud.com/api/04e5026aae7c44249bb13acc4d8c92ab/resturentdata/${data._id}`)
+                    axios.delete(`https://crudcrud.com/api/520904f9f14f43be8773047ebe65c3b3/resturentdata/${data._id}`)
                         .then(() => {
                             table.removeChild(newOrder); // Remove from UI
                         })
